@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="./images/favicon-32x32.png" />
+    <link rel="stylesheet" href="./calc.css" />
+    <title>Calculator app</title>
+  </head>
+  <body class="theme1">
+    <div class="app flex">
+      <div class="calc-container">
+        <div class="calc-header flex">
+          <span>calc</span>
+
+          <div class="theme-toggle flex">
+            <span>theme</span>
+
+            <div class="toggle-btn-container flex">
+              <span class="flex">
+                <span>1</span>
+                <span>2</span>
+                <span>3</span>
+              </span>
+
+              <div id="toggle-btn" class="toggle-btn">
+                <span></span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="calc">
+          <div class="screen-container">
+            <div id="screen" class="calc-screen"></div>
+          </div>
+          <div class="calc-body">
+            <div class="calc-keys">
+              <div class="row">
+                <div class="key def-key" data-operand="7"><span>7</span></div>
+                <div class="key def-key" data-operand="8"><span>8</span></div>
+                <div class="key def-key" data-operand="9"><span>9</span></div>
+                <div class="key del-key"><span>DEL</span></div>
+              </div>
+
+              <div class="row">
+                <div class="key def-key" data-operand="4"><span>4</span></div>
+                <div class="key def-key" data-operand="5"><span>5</span></div>
+                <div class="key def-key" data-operand="6"><span>6</span></div>
+                <div class="key def-key" data-operation="+"><span>+</span></div>
+              </div>
+
+              <div class="row">
+                <div class="key def-key" data-operand="1"><span>1</span></div>
+                <div class="key def-key" data-operand="2"><span>2</span></div>
+                <div class="key def-key" data-operand="3"><span>3</span></div>
+                <div class="key def-key" data-operation="-"><span>-</span></div>
+              </div>
+
+              <div class="row">
+                <div class="key def-key" data-operand="."><span>.</span></div>
+                <div class="key def-key" data-operand="0"><span>0</span></div>
+                <div class="key def-key" data-operation="/"><span>/</span></div>
+                <div class="key def-key" data-operation="*"><span>*</span></div>
+              </div>
+
+              <div class="row">
+                <div class="key reset-key">
+                  <span>RESET</span>
+                </div>
+                <div class="key res-key"><span>=</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="./calc.js"></script>
+  </body>
+</html>

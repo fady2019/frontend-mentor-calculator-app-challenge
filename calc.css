@@ -1,0 +1,299 @@
+@import url('https://fonts.googleapis.com/css2?family=Spartan:wght@700&display=swap');
+
+body,
+body.theme1 {
+  --body-bg: hsl(222, 26%, 31%);
+
+  --toggle-bg: hsl(223, 31%, 20%);
+
+  --calc-screen-text-color: hsl(0, 0%, 100%);
+  --calc-screen-bg: hsl(224, 36%, 15%);
+  --calc-keypad-bg: hsl(223, 31%, 20%);
+
+  --calc-def-key-bg: hsl(30, 25%, 89%);
+  --calc-def-key-shadow-color: hsl(28, 16%, 65%);
+  --calc-def-key-text-color: hsl(221, 14%, 31%);
+
+  --calc-del-key-bg: hsl(225, 21%, 49%);
+  --calc-del-key-shadow-color: hsl(224, 28%, 35%);
+  --calc-del-key-text-color: hsl(0, 0%, 100%);
+
+  --calc-res-key-bg: hsl(6, 63%, 50%);
+  --calc-res-key-shadow-color: hsl(6, 70%, 34%);
+  --calc-res-key-text-color: hsl(0, 0%, 100%);
+}
+
+body.theme2 {
+  --body-bg: hsl(0, 0%, 90%);
+
+  --toggle-bg: hsl(0, 5%, 81%);
+
+  --calc-screen-text-color: hsl(60, 10%, 19%);
+  --calc-screen-bg: hsl(0, 0%, 93%);
+  --calc-keypad-bg: hsl(0, 5%, 81%);
+
+  --calc-def-key-bg: hsl(45, 7%, 89%);
+  --calc-def-key-shadow-color: hsl(35, 11%, 61%);
+  --calc-def-key-text-color: hsl(60, 10%, 19%);
+
+  --calc-del-key-bg: hsl(185, 42%, 37%);
+  --calc-del-key-shadow-color: hsl(185, 58%, 25%);
+  --calc-del-key-text-color: hsl(0, 0%, 100%);
+
+  --calc-res-key-bg: hsl(25, 98%, 40%);
+  --calc-res-key-shadow-color: hsl(25, 99%, 27%);
+  --calc-res-key-text-color: hsl(0, 0%, 100%);
+}
+
+body.theme3 {
+  --body-bg: hsl(268, 75%, 9%);
+
+  --toggle-bg: hsl(268, 71%, 12%);
+
+  --calc-screen-text-color: hsl(52, 100%, 62%);
+  --calc-screen-bg: hsl(268, 71%, 12%);
+  --calc-keypad-bg: hsl(268, 71%, 12%);
+
+  --calc-def-key-bg: hsl(268, 47%, 21%);
+  --calc-def-key-shadow-color: hsl(290, 70%, 36%);
+  --calc-def-key-text-color: hsl(52, 100%, 62%);
+
+  --calc-del-key-bg: hsl(281, 89%, 26%);
+  --calc-del-key-shadow-color: hsl(285, 91%, 52%);
+  --calc-del-key-text-color: hsl(0, 0%, 100%);
+
+  --calc-res-key-bg: hsl(176, 100%, 44%);
+  --calc-res-key-shadow-color: hsl(177, 92%, 70%);
+  --calc-res-key-text-color: hsl(198, 20%, 13%);
+}
+
+html,
+body {
+  overflow: auto;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  font-family: 'Spartan';
+  font-size: 28px;
+  margin: 0;
+  box-sizing: border-box;
+  background-color: var(--body-bg);
+  transition: background-color 0.2s linear;
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.flex {
+  display: flex;
+}
+
+.app {
+  justify-content: center;
+  padding: 80px;
+}
+
+.calc-container {
+  width: 450px;
+}
+
+.calc-header {
+  justify-content: space-between;
+  align-items: flex-end;
+  color: var(--calc-screen-text-color);
+  user-select: none;
+}
+
+.theme-toggle {
+  align-items: flex-end;
+  padding: 4px 0;
+}
+
+.theme-toggle > span {
+  font-size: 12px;
+  text-transform: uppercase;
+  padding: 0 15px 2px 15px;
+}
+
+.toggle-btn-container {
+  flex-direction: column;
+}
+
+.toggle-btn-container > span {
+  font-size: 12px;
+  padding: 1px 8px;
+  justify-content: space-between;
+}
+
+.toggle-btn {
+  overflow: hidden;
+  width: 65px;
+  height: 25px;
+  background-color: var(--toggle-bg);
+  border-radius: 25px;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.toggle-btn > span {
+  display: block;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background-color: var(--calc-res-key-bg);
+  margin-left: 0;
+  transition: margin 0.2s linear;
+}
+
+body.theme2 .toggle-btn > span {
+  margin-left: calc(50% - 7.5px);
+}
+
+body.theme3 .toggle-btn > span {
+  margin-left: calc(100% - 15px);
+}
+
+.screen-container {
+  width: 100%;
+  height: 90px;
+  padding: 20px;
+  background-color: var(--calc-screen-bg);
+  color: var(--calc-screen-text-color);
+  border-radius: 5px;
+  margin: 20px 0;
+  display: flex;
+  align-items: center;
+}
+
+.calc-screen {
+  overflow-x: auto;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  width: 100%;
+  white-space: nowrap;
+  user-select: none;
+}
+
+.calc-screen::-webkit-scrollbar {
+  display: none;
+}
+
+.calc-screen #result {
+  display: block;
+  width: 100%;
+  direction: rtl;
+}
+
+.calc-body {
+  width: 100%;
+  background-color: var(--calc-keypad-bg);
+  border-radius: 5px;
+  padding: 25px;
+}
+
+.calc-keys {
+  display: grid;
+  gap: 20px;
+}
+
+.calc-keys .row {
+  display: grid;
+  grid-auto-flow: column;
+  gap: 20px;
+}
+
+.calc-keys .row:not(:last-of-type) {
+  grid-auto-columns: calc(25% - 15px);
+}
+
+.calc-keys .row:last-of-type {
+  grid-auto-columns: calc(50% - 10px);
+}
+
+.calc-keys .key {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  cursor: pointer;
+  user-select: none;
+  opacity: 0.8;
+}
+
+.calc-keys .row:not(:last-of-type) .key {
+  padding: 10px 15px 5px;
+}
+
+.calc-keys .row:last-of-type .key {
+  padding: 15px 15px 10px;
+}
+
+.calc-keys .key.def-key {
+  background-color: var(--calc-def-key-bg);
+  box-shadow: 0 4px var(--calc-def-key-shadow-color);
+  color: var(--calc-def-key-text-color);
+}
+
+.calc-keys .key:not(.def-key) {
+  font-size: 18px;
+}
+
+.calc-keys .key.del-key,
+.calc-keys .key.reset-key {
+  background-color: var(--calc-del-key-bg);
+  box-shadow: 0 5px var(--calc-del-key-shadow-color);
+  color: var(--calc-del-key-text-color);
+}
+
+.calc-keys .key.res-key {
+  background-color: var(--calc-res-key-bg);
+  box-shadow: 0 5px var(--calc-res-key-shadow-color);
+  color: var(--calc-res-key-text-color);
+}
+
+.calc-keys .key:hover {
+  opacity: 1;
+}
+
+@media (max-width: 375px) {
+  body,
+  html {
+    font-size: 20px;
+  }
+
+  .app {
+    padding: 20px;
+  }
+
+  .calc-container {
+    width: 100%;
+  }
+
+  .screen-container {
+    height: 70px;
+  }
+
+  .calc-keys {
+    gap: 15px;
+  }
+
+  .calc-keys .row {
+    gap: 8px;
+  }
+
+  .calc-keys .row:not(:last-of-type) {
+    grid-auto-columns: calc(25% - 6px);
+  }
+
+  .calc-keys .row:last-of-type {
+    grid-auto-columns: calc(50% - 4px);
+  }
+
+  .calc-keys .key:not(.def-key) {
+    font-size: 12px;
+  }
+}
